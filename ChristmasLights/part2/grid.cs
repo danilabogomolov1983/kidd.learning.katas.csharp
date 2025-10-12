@@ -13,7 +13,7 @@ public class Grid
         {
             for (int k = start.y; k <= end.y; k++)
             {
-                this.lights[i, k] = 1;
+                this.lights[i, k]++;
             }
         }
         return this;
@@ -25,7 +25,7 @@ public class Grid
         {
             for (int k = start.y; k <= end.y; k++)
             {
-                this.lights[i, k] = 0;
+                this.lights[i, k]--;
             }
         }
         return this;
@@ -37,7 +37,7 @@ public class Grid
         {
             for (int k = start.y; k <= end.y; k++)
             {
-                this.lights[i, k] = this.lights[i, k] == 0 ? 1 : 0;
+                this.lights[i, k] = this.lights[i, k] + 2;
             }
         }
         return this;
