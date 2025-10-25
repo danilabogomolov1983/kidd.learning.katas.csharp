@@ -5,6 +5,16 @@ public record Light(LightState? State = LightState.Off)
 {
     public static Light Create() => new ();
 };
+
+public static class LightExtensions
+{
+	public static Light Toggle(this Light that)
+	{
+		return that.State != LightState.On ? Light.Create() with { State = LightState.On } : Light.Create();
+	}
+};
+
+
 public class Grid
 {
     private Light[,] lights;
@@ -44,7 +54,7 @@ public class Grid
         {
             for (int k = start.y; k <= end.y; k++)
             {
-                this.lights[i, k] = this.lights[i, k].State != LightState.On ? Light.Create() with { State = LightState.On } : Light.Create();
+                this.lights[i, k] = this.lights[i, k].Toggle();
             }
         }
         return this;
