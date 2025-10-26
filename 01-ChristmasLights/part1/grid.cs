@@ -12,55 +12,51 @@ public record Light(LightState? State = LightState.Off)
     public static Light Create() => new ();
 };
 
-public record Grid(int width, int height)
+
+public record Grid(int Width, int Height)
 {
-    private Light[,] lights = new Light[width, height];
+    private Light[,] lights = new Light[Width, Height];
 
-    public Grid TurnOn(Position start, Position end)
+    public Grid TurnOn(Position position)
     {
-		
-		void Loop(Light[,] lights, Position actual)
-		{
-			(actual.X, actual.Y) switch
-			{
-				(>=start.X and <=end.X, >=start.Y and <=end.Y) => 
-				{
-					lights[actual.X, actual.Y].TurnOn();
-				},
-				_ => return;
-			};
-		} 
-
-        for (int i = start.X; i <= end.X; i++)
+        this.lights[position.X, position.Y] = lights[position.X, position.Y].TurnOn();
+        return this;
+    }
+    public Grid TurnOff(Position position)
+    {
+        this.lights[position.X, position.Y] = lights[position.X, position.Y].TurnOff();
+        return this;
+    }
+    public Grid Toggle(Position position)
+    {
+        this.lights[position.X, position.Y] = lights[position.X, position.Y].Toggle();
+        return this;
+    }
+    public Grid TurnSquareOn(Position left, Position right)
+    {
+        for (int i = left.X; i <= right.X; i++)
         {
-            for (int k = start.Y; k <= end.Y; k++)
-            {
-                this.lights[i, k] = lights[i, k].TurnOn();
-            }
+            for (int k = left.Y; k <= right.Y; k++)
+                TurnOn(Position.Create(i, k));
         }
         return this;
     }
-    
-    public Grid TurnOff(Position start, Position end)
+    public Grid TurnSquareOff(Position left, Position right)
     {
-        for (int i = start.X; i <= end.X; i++)
+        for (int i = left.X; i <= right.X; i++)
         {
-            for (int k = start.Y; k <= end.Y; k++)
-            {
-                this.lights[i, k] = lights[i, k].TurnOff();
-            }
+            for (int k = left.Y; k <= right.Y; k++)
+                TurnOff(Position.Create(i, k));
         }
         return this;
     }
-    
-    public Grid Toggle(Position start, Position end)
+
+    public Grid ToggleSquare(Position start, Position end)
     {
         for (int i = start.X; i <= end.X; i++)
         {
             for (int k = start.Y; k <= end.Y; k++)
-            {
-                this.lights[i, k] = this.lights[i, k].Toggle();
-            }
+                Toggle(Position.Create(i, k));
         }
         return this;
     }
