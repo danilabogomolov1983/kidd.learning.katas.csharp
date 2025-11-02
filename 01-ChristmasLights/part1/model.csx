@@ -1,4 +1,4 @@
-#load "lightExtensions.cs"
+#load "lightExtensions.csx"
 
 public enum LightState { On, Off };
 

@@ -1,6 +1,8 @@
+#load "model.csx"
+
 public static Light Toggle(this Light that)
 {
-	return that.State != LightState.On ? Light.Create() with { State = LightState.On } : Light.Create();
+	return that?.State == null || that.State == LightState.Off ? Light.Create() with { State = LightState.On } : Light.Create();
 }
 
 public static Light TurnOn(this Light _)

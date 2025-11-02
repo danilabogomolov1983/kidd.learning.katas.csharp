@@ -1,5 +1,5 @@
-#load "grid.cs"
-#load "../../assert.cs"
+#load "model.csx"
+#load "../../assert.csx"
 
 using System;
 using System.Diagnostics;
