@@ -9,29 +9,29 @@ public class LightTests
     {
         var light = new Light();
 
-        Assert.Equal(LightState.OFF, light.State);
+        Assert.Equal(LightState.Off, light.State);
     }
 
     [Fact]
     public void TurnOnReturnsLightWithOnState()
     {
-        var original = new Light(LightState.OFF);
+        var original = new Light(LightState.Off);
 
-        var turnedOn = original.TurnOn();
+        var turnedOn = Light.TurnOn();
 
-        Assert.Equal(LightState.ON, turnedOn.State);
-        Assert.Equal(LightState.OFF, original.State);
+        Assert.Equal(LightState.On, turnedOn.State);
+        Assert.Equal(LightState.Off, original.State);
     }
 
     [Fact]
     public void TurnOffReturnsLightWithOffState()
     {
-        var original = new Light(LightState.ON);
+        var original = new Light(LightState.On);
 
-        var turnedOff = original.TurnOff();
+        var turnedOff = Light.TurnOff();
 
-        Assert.Equal(LightState.OFF, turnedOff.State);
-        Assert.Equal(LightState.ON, original.State);
+        Assert.Equal(LightState.Off, turnedOff.State);
+        Assert.Equal(LightState.On, original.State);
     }
 
     [Fact]
@@ -41,16 +41,16 @@ public class LightTests
 
         var toggled = light.Toggle();
 
-        Assert.Equal(LightState.ON, toggled.State);
+        Assert.Equal(LightState.On, toggled.State);
     }
 
     [Fact]
     public void ToggleFromOnTurnsLightOff()
     {
-        var light = new Light(LightState.ON);
+        var light = new Light(LightState.On);
 
         var toggled = light.Toggle();
 
-        Assert.Equal(LightState.OFF, toggled.State);
+        Assert.Equal(LightState.Off, toggled.State);
     }
 }

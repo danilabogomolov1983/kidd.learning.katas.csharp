@@ -2,19 +2,19 @@ namespace model;
 
 public enum LightState
 {
-    ON,
-    OFF
+    On,
+    Off
 }
 
 
 
-public record Light(LightState? State = LightState.OFF)
+public record Light(LightState? State = LightState.Off)
 {
-    private Light UpdateState(LightState newState) => new (State: newState);
+    private static Light UpdateState(LightState newState) => new (State: newState);
 
-    public Light TurnOn() => UpdateState(LightState.ON);
-    public Light TurnOff() => UpdateState(LightState.OFF);
-    public Light Toggle() => this?.State == null || this?.State == LightState.OFF ? TurnOn() : TurnOff();
+    public static Light TurnOn() => UpdateState(LightState.On);
+    public static Light TurnOff() => UpdateState(LightState.Off);
+    public Light Toggle() => State is null or LightState.Off ? TurnOn() : TurnOff();
 }
 
 
@@ -30,7 +30,66 @@ public record Point(int X, int Y);
 public record Grid(GridSize GridSize)
 {
     private readonly Light[,] _lights = new Light[GridSize.Width.AsInt(), GridSize.Height.AsInt()];
-
     
     public Light Get(Point point) => _lights[point.X, point.Y];
+
+    // public Light[] GetRange(Point point1, Point point2)
+    // {
+    //     for (int i = point1.X; i <= point2.X; i++)
+    //     {
+    //         for (int k = point1.Y; k <= point2.Y; k++)
+    //         {
+    //             // execute f()
+    //         }
+    //     }
+    //     
+    // }
 }
+
+
+public delegate Enumrate
+public static class GridExtensions
+{
+    
+    public static Light[] GetRange(this Grid that, Point point1, Point point2)
+    {
+        for (int i = point1.X; i <= point2.X; i++)
+        {
+            for (int k = point1.Y; k <= point2.Y; k++)
+            {
+                // execute f()
+            }
+        }
+        
+    } 
+}
+
+
+// public Grid TurnSquareOn(Position left, Position right)
+// {
+//     for (int i = left.X; i <= right.X; i++)
+//     {
+//         for (int k = left.Y; k <= right.Y; k++)
+//             TurnOn(Position.Create(i, k));
+//     }
+//     return this;
+// }
+// public Grid TurnSquareOff(Position left, Position right)
+// {
+//     for (int i = left.X; i <= right.X; i++)
+//     {
+//         for (int k = left.Y; k <= right.Y; k++)
+//             TurnOff(Position.Create(i, k));
+//     }
+//     return this;
+// }
+
+// public Grid ToggleSquare(Position start, Position end)
+// {
+//     for (int i = start.X; i <= end.X; i++)
+//     {
+//         for (int k = start.Y; k <= end.Y; k++)
+//             Toggle(Position.Create(i, k));
+//     }
+//     return this;
+// }

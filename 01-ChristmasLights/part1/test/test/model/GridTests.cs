@@ -14,7 +14,7 @@ public class GridTests
         var light = grid.Get(new Point(0, 0));
 
         Assert.NotNull(light);
-        Assert.Equal(LightState.OFF, light.State);
+        Assert.Equal(LightState.Off, light.State);
     }
 
     [Fact]
@@ -24,13 +24,13 @@ public class GridTests
         var lightsField = typeof(Grid).GetField("Lights", BindingFlags.NonPublic | BindingFlags.Instance)
                          ?? throw new InvalidOperationException("Lights field not found on Grid");
         var lights = (Light[,])lightsField.GetValue(grid)!;
-        var expected = new Light(LightState.ON);
+        var expected = new Light(LightState.On);
 
         lights[1, 1] = expected;
 
         var retrieved = grid.Get(new Point(1, 1));
 
         Assert.Same(expected, retrieved);
-        Assert.Equal(LightState.ON, retrieved.State);
+        Assert.Equal(LightState.On, retrieved.State);
     }
 }
