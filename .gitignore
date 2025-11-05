@@ -64,3 +64,5 @@ appsettings.*
 # VS Code
 .vscode
 lcov.info
+
+.vs

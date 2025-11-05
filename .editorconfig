@@ -236,16 +236,3 @@ dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix =
 dotnet_naming_style.begins_with_i.word_separator =
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
-
-########## Net.Kidd.Store specific rules #########
-
-[*ContextFactory*.cs]
-# Disable unused for design time factories
-resharper_unused_type_global_highlighting = none
-
-
-[*ServiceInstaller*.cs]
-# Disable unused for service installers
-resharper_unused_type_global_highlighting = none
-
-

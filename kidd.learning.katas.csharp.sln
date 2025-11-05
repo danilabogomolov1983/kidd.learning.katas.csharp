@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "model", "01-ChristmasLights\part1\src\model\model.csproj", "{95C07C3B-8862-4C69-8C7C-AF91FB9D750F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-ChristmasLights", "01-ChristmasLights", "{71D1C3C0-FF44-4C3B-98C2-ED37F846DBE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "part1", "part1", "{23AAA0BA-2E10-41DD-9757-89DEB54F9212}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1B5E068F-C421-47A3-A753-0B5ED1841E5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FC93D3AB-92F7-4402-B74E-35F14A35A967}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "01-ChristmasLights\part1\test\test\test.csproj", "{9A4504EA-DD55-4772-B4CC-0FD28BD55F8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95C07C3B-8862-4C69-8C7C-AF91FB9D750F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C07C3B-8862-4C69-8C7C-AF91FB9D750F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C07C3B-8862-4C69-8C7C-AF91FB9D750F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C07C3B-8862-4C69-8C7C-AF91FB9D750F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A4504EA-DD55-4772-B4CC-0FD28BD55F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A4504EA-DD55-4772-B4CC-0FD28BD55F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A4504EA-DD55-4772-B4CC-0FD28BD55F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A4504EA-DD55-4772-B4CC-0FD28BD55F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23AAA0BA-2E10-41DD-9757-89DEB54F9212} = {71D1C3C0-FF44-4C3B-98C2-ED37F846DBE2}
+		{1B5E068F-C421-47A3-A753-0B5ED1841E5B} = {23AAA0BA-2E10-41DD-9757-89DEB54F9212}
+		{95C07C3B-8862-4C69-8C7C-AF91FB9D750F} = {1B5E068F-C421-47A3-A753-0B5ED1841E5B}
+		{FC93D3AB-92F7-4402-B74E-35F14A35A967} = {23AAA0BA-2E10-41DD-9757-89DEB54F9212}
+		{9A4504EA-DD55-4772-B4CC-0FD28BD55F8F} = {FC93D3AB-92F7-4402-B74E-35F14A35A967}
+	EndGlobalSection
+EndGlobal
