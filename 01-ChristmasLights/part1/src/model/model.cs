@@ -27,13 +27,43 @@ public record Width(int Value) : Side(Value);
 public record Height(int Value) : Side(Value);
 public record GridSize(Width Width, Height Height);
 public record Point(int X, int Y);
-public record Grid(GridSize GridSize)
-{
-    private readonly Light[,] _lights = new Light[GridSize.Width.AsInt(), GridSize.Height.AsInt()];
-    
-    public Light Get(Point point) => _lights[point.X, point.Y];
 
-    // public Light[] GetRange(Point point1, Point point2)
+
+public delegate Grid SetSize(GridSize gridSize);
+
+
+public record Grid(GridSize? GridSize = null, Light[,]? Lights = null);
+
+// private readonly Light[,] _lights = new Light[GridSize.Width.AsInt(), GridSize.Height.AsInt()];
+
+// public Light Get(Point point) => _lights[point.X, point.Y];
+
+// public Light[] GetRange(Point point1, Point point2)
+// {
+//     for (int i = point1.X; i <= point2.X; i++)
+//     {
+//         for (int k = point1.Y; k <= point2.Y; k++)
+//         {
+//             // execute f()
+//         }
+//     }
+//     
+// }
+
+
+
+public delegate Grid GridCreator();
+public delegate Grid GridCreatorEx(GridSize gridSize);
+
+public static class GridCreatorExtensions
+{
+    public static GridCreator Apply(this GridCreatorEx that, GridSize gridSize) => () => that(gridSize);
+}
+public static class GridFactory
+{
+
+    public static GridCreatorEx Create => gridSize => new(gridSize, new Light[gridSize.Width.AsInt(), gridSize.Height.AsInt()]);
+    // public static Light[] GetRange(this Grid that, Point point1, Point point2)
     // {
     //     for (int i = point1.X; i <= point2.X; i++)
     //     {
@@ -42,26 +72,8 @@ public record Grid(GridSize GridSize)
     //             // execute f()
     //         }
     //     }
-    //     
-    // }
-}
 
-
-public delegate Enumrate
-public static class GridExtensions
-{
-    
-    public static Light[] GetRange(this Grid that, Point point1, Point point2)
-    {
-        for (int i = point1.X; i <= point2.X; i++)
-        {
-            for (int k = point1.Y; k <= point2.Y; k++)
-            {
-                // execute f()
-            }
-        }
-        
-    } 
+    // } 
 }
 
 
