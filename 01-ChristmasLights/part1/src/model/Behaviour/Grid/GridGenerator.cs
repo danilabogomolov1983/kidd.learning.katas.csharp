@@ -22,7 +22,7 @@ namespace model.Behavour;
 static class GridGenerator
 {
 
-    public static GridCreatorEx NewGrid => gridSize => new(gridSize, new Light[gridSize.Width.AsInt(), gridSize.Height.AsInt()]);
+    public static GridCreatorEx New => gridSize => new(gridSize, new Light[gridSize.Width.AsInt(), gridSize.Height.AsInt()]);
     // public static Light[] GetRange(this Grid that, Point point1, Point point2)
     // {
     //     for (int i = point1.X; i <= point2.X; i++)

@@ -2,10 +2,6 @@ using model.Types;
 
 namespace model.Behavour;
 
-public static class GridCreatorExtensions
-{
-    public static GridCreator SetSize(this GridCreatorEx that, GridSize gridSize) => () => that(gridSize);
-}
 
 
 // public Grid TurnSquareOn(Position left, Position right)

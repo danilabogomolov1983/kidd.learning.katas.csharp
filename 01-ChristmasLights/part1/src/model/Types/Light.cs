@@ -1,12 +1,12 @@
 namespace model.Types;
-public record Light(LightState? State = LightState.Off)
-{
-    private static Light UpdateState(LightState newState) => new(State: newState);
+public record Light(LightState? State = LightState.Off);
+// {
+    // private static Light UpdateState(LightState newState) => new(State: newState);
 
-    public static Light TurnOn() => UpdateState(LightState.On);
-    public static Light TurnOff() => UpdateState(LightState.Off);
-    public Light Toggle() => State is null or LightState.Off ? TurnOn() : TurnOff();
-}
+    // public static Light TurnOn() => UpdateState(LightState.On);
+    // public static Light TurnOff() => UpdateState(LightState.Off);
+    // public Light Toggle() => State is null or LightState.Off ? TurnOn() : TurnOff();
+// }
 
 
 // public Grid TurnSquareOn(Position left, Position right)

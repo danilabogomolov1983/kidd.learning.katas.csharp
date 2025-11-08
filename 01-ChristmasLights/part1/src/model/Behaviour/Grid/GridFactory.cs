@@ -11,19 +11,22 @@ public class GridFactory
         this.Generators = new Dictionary<string, GridCreator>()
         {
             {
-                "Default", CreateDefaultGridCreator(DefaultGridSize)
-            }
+                "Default", CreateGridCreator(DefaultSize)
+            },
 
+            {
+                "100_Square", CreateGridCreator(new(new(100), new(100)))
+            }
         };
 
     }
     public GridCreator GetCreator(string? name = null)
-    {
-        return name != null && this.Generators.TryGetValue(name, out var generator) ? generator : DefaultGridCreator;
-    }
-    private static GridCreator CreateDefaultGridCreator(GridSize gridSize) => GridGenerator.NewGrid.SetSize(gridSize);
-    private static GridSize DefaultGridSize => new(new(1000), new(1000));
-    private static GridCreator DefaultGridCreator { get; } = GridGenerator.NewGrid.SetSize(DefaultGridSize);
+        => name != null && this.Generators.TryGetValue(name, out var generator) ? generator : DefaultCreator;
+
+    public GridCreator GetCustomCreator(GridSize gridSize) => GridGenerator.New.SetSize(gridSize);
+    private static GridCreator CreateGridCreator(GridSize gridSize) => GridGenerator.New.SetSize(gridSize);
+    private static GridSize DefaultSize => new(new(1000), new(1000));
+    private static GridCreator DefaultCreator { get; } = GridGenerator.New.SetSize(DefaultSize);
 
 }
 

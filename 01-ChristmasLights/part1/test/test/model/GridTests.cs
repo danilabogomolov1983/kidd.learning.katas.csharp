@@ -9,9 +9,9 @@ namespace test.model;
 public class GridTests
 {
 
-    
+
     [Fact]
-    public void GridFactory_SetSize_Create()
+    public void GridFactory_GridCreator()
     {
         // Arrange
         var factory = new GridFactory();
@@ -22,8 +22,22 @@ public class GridTests
 
         // Assert
 
-        Assert.Equal(1000, grid.GridSize.Height.AsInt());
-        Assert.Equal(1000, grid.GridSize.Height.AsInt());
+        Assert.Equal(new GridSize(new(1000), new(1000)), grid.GridSize);
+    }
+    
+        [Fact]
+    public void GridFactory_GridCreator_GetCustomCreator()
+    {
+        // Arrange
+        var factory = new GridFactory();
+        var expectedGridSize = new GridSize(new(500), new(500));
+        var gridCreator = factory.GetCustomCreator(expectedGridSize);
 
+        // Act
+        var grid = gridCreator();
+
+        // Assert
+
+        Assert.Equal(expectedGridSize, grid.GridSize);
     }
 }
