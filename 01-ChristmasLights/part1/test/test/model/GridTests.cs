@@ -1,6 +1,8 @@
 using System.Reflection;
 
 using model;
+using model.Behavour;
+using model.Types;
 
 namespace test.model;
 
@@ -11,10 +13,17 @@ public class GridTests
     [Fact]
     public void GridFactory_SetSize_Create()
     {
+        // Arrange
+        var factory = new GridFactory();
+        var gridCreator = factory.GetCreator();
 
-        var gridSize = new GridSize(new Width(1000), new Height(1000));
-        var createGrid = GridFactory.Create.Apply(gridSize);
-        var grid = createGrid();
+        // Act
+        var grid = gridCreator();
+
+        // Assert
+
+        Assert.Equal(1000, grid.GridSize.Height.AsInt());
+        Assert.Equal(1000, grid.GridSize.Height.AsInt());
 
     }
 }

@@ -1,38 +1,7 @@
-namespace model;
+using model.Types;
 
-public enum LightState
-{
-    On,
-    Off
-}
+namespace model.Behavour;
 
-
-
-public record Light(LightState? State = LightState.Off)
-{
-    private static Light UpdateState(LightState newState) => new (State: newState);
-
-    public static Light TurnOn() => UpdateState(LightState.On);
-    public static Light TurnOff() => UpdateState(LightState.Off);
-    public Light Toggle() => State is null or LightState.Off ? TurnOn() : TurnOff();
-}
-
-
-public static class Extensions
-{
-    public static int AsInt(this Side that) => that.Value;
-}
-public record Side(int Value);
-public record Width(int Value) : Side(Value);
-public record Height(int Value) : Side(Value);
-public record GridSize(Width Width, Height Height);
-public record Point(int X, int Y);
-
-
-public delegate Grid SetSize(GridSize gridSize);
-
-
-public record Grid(GridSize? GridSize = null, Light[,]? Lights = null);
 
 // private readonly Light[,] _lights = new Light[GridSize.Width.AsInt(), GridSize.Height.AsInt()];
 
@@ -50,19 +19,10 @@ public record Grid(GridSize? GridSize = null, Light[,]? Lights = null);
 //     
 // }
 
-
-
-public delegate Grid GridCreator();
-public delegate Grid GridCreatorEx(GridSize gridSize);
-
-public static class GridCreatorExtensions
-{
-    public static GridCreator Apply(this GridCreatorEx that, GridSize gridSize) => () => that(gridSize);
-}
-public static class GridFactory
+static class GridGenerator
 {
 
-    public static GridCreatorEx Create => gridSize => new(gridSize, new Light[gridSize.Width.AsInt(), gridSize.Height.AsInt()]);
+    public static GridCreatorEx NewGrid => gridSize => new(gridSize, new Light[gridSize.Width.AsInt(), gridSize.Height.AsInt()]);
     // public static Light[] GetRange(this Grid that, Point point1, Point point2)
     // {
     //     for (int i = point1.X; i <= point2.X; i++)
