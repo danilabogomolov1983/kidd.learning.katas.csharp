@@ -1,11 +1,12 @@
-using model.Types;
+namespace modules.Light.Model;
+public record Light(LightState? State = LightState.Off);
+// {
+    // private static Light UpdateState(LightState newState) => new(State: newState);
 
-namespace model.Behavour;
-
-public static class ModelExtensions
-{
-    public static int AsInt(this Side that) => that.Value;
-}
+    // public static Light TurnOn() => UpdateState(LightState.On);
+    // public static Light TurnOff() => UpdateState(LightState.Off);
+    // public Light Toggle() => State is null or LightState.Off ? TurnOn() : TurnOff();
+// }
 
 
 // public Grid TurnSquareOn(Position left, Position right)

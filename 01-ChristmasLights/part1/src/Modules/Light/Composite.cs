@@ -1,4 +1,4 @@
-using model.Types;
+namespace modules.Light;
 
 public delegate Light LightCreator();
 public delegate Light LightCreatorEx(LightState state);

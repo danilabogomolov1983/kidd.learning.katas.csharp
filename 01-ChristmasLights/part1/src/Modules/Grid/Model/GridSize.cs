@@ -1,5 +1,5 @@
-namespace model.Types;
-public record Side(int Value);
+namespace modules.Grid.Model;
+public record GridSize(Width Width, Height Height);
 
 
 // public Grid TurnSquareOn(Position left, Position right)

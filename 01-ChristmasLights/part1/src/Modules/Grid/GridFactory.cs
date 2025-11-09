@@ -1,6 +1,5 @@
-using model.Types;
 
-namespace model.Behavour;
+namespace modules.Grid;
 
 public class GridFactory
 {

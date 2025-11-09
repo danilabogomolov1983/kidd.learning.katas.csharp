@@ -1,6 +1,4 @@
-using model.Types;
-
-namespace model.Behavour;
+namespace modules.Grid;
 
 public delegate Grid GridCreator();
 public delegate Grid GridCreatorEx(GridSize gridSize);

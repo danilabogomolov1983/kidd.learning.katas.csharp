@@ -1,6 +1,5 @@
-namespace model.Types;
-
-public record Grid(GridSize GridSize, Light[,] Lights);
+namespace Common.Model;
+public record Point(int X, int Y);
 
 
 // public Grid TurnSquareOn(Position left, Position right)

@@ -1,4 +1,4 @@
-namespace model.Types;
+namespace modules.Light.Model;
 public enum LightState
 {
     On,

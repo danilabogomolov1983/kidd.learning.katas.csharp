@@ -1,7 +1,4 @@
-using System.Net.NetworkInformation;
-
-using model.Behavour;
-using model.Types;
+namespace modules.Light;
 
 public class LightFactory
 {

@@ -1,5 +1,11 @@
-namespace model.Types;
-public record Width(int Value) : Side(Value);
+using model.Types;
+
+namespace model.Behavour;
+
+public static class CommonExtensions
+{
+    public static int AsInt(this Side that) => that.Value;
+}
 
 
 // public Grid TurnSquareOn(Position left, Position right)

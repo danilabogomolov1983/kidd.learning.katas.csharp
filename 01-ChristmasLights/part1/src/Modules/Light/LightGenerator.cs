@@ -1,5 +1,4 @@
-using model.Types;
-
+namespace modules.Light;
 
 static class LightGenerator
 {

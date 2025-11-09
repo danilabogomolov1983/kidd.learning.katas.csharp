@@ -1,6 +1,4 @@
-using model.Types;
-
-namespace model.Behavour;
+namespace modules.Grid;
 
 
 // private readonly Light[,] _lights = new Light[GridSize.Width.AsInt(), GridSize.Height.AsInt()];

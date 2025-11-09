@@ -6,7 +6,7 @@ using model.Types;
 
 namespace test.model;
 
-public class LightTests
+public class LightFactoryTests
 {
 
 

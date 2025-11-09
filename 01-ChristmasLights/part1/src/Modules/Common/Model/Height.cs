@@ -1,4 +1,4 @@
-namespace model.Types;
+namespace Common.Model;
 public record Height(int Value) : Side(Value);
 
 

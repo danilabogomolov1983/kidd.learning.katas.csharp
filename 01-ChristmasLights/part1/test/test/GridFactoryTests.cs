@@ -6,7 +6,7 @@ using model.Types;
 
 namespace test.model;
 
-public class GridTests
+public class GridFactoryTests
 {
 
 

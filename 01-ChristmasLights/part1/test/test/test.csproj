@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\model\model.csproj" />
+      <ProjectReference Include="..\..\src\Modules\modules.csproj" />
     </ItemGroup>
 
 </Project>

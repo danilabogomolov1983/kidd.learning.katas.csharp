@@ -1,5 +1,5 @@
-namespace model.Types;
-public record GridSize(Width Width, Height Height);
+namespace Common.Model;
+public record Width(int Value) : Side(Value);
 
 
 // public Grid TurnSquareOn(Position left, Position right)
