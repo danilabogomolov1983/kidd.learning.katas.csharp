@@ -1,5 +1,9 @@
-namespace modules.Grid.Model;
-public record GridSize(Width Width, Height Height);
+namespace modules.Light.Model;
+public enum LightStateValue
+{
+    On,
+    Off
+}
 
 
 // public Grid TurnSquareOn(Position left, Position right)

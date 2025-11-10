@@ -4,6 +4,8 @@ using model;
 using model.Behavour;
 using model.Types;
 
+using Modules.Grid;
+
 namespace test.model;
 
 public class GridFactoryTests

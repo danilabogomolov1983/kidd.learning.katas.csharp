@@ -1,9 +1,20 @@
-namespace modules.Light.Model;
-public enum LightState
+using Modules.Common.Model;
+
+using modules.Light.Model;
+
+namespace Modules.Grid.Model;
+
+public record GridInfo(WidthValue Width, HeightValue Height, LightMatrix Lights);
+
+public record LightMatrix
 {
-    On,
-    Off
-}
+    private static readonly LightType[,] Lights;
+    public LightMatrix()
+    {
+        
+    }
+
+};
 
 
 // public Grid TurnSquareOn(Position left, Position right)

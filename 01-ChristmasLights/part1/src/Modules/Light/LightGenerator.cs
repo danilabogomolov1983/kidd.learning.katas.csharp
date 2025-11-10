@@ -2,5 +2,5 @@ namespace modules.Light;
 
 static class LightGenerator
 {
-    public static LightCreatorEx New => state => new(state);
+    public static CreateLightEx New => state => new(state);
 }

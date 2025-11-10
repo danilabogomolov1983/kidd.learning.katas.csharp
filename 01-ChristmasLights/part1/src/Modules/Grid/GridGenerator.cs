@@ -1,6 +1,3 @@
-namespace modules.Grid;
-
-
 // private readonly Light[,] _lights = new Light[GridSize.Width.AsInt(), GridSize.Height.AsInt()];
 
 // public Light Get(Point point) => _lights[point.X, point.Y];
@@ -17,10 +14,19 @@ namespace modules.Grid;
 //     
 // }
 
-static class GridGenerator
+
+using Modules.Common;
+
+using modules.Light.Model;
+
+namespace Modules.Grid;
+
+internal static class GridGenerator
 {
 
-    public static GridCreatorEx New => gridSize => new(gridSize, new Light[gridSize.Width.AsInt(), gridSize.Height.AsInt()]);
+    public static CreateGridEx New => (widthValue, heightValue) => new(widthValue, heightValue, new LightType[widthValue.AsInt(), heightValue.AsInt()]);
+    
+    
     // public static Light[] GetRange(this Grid that, Point point1, Point point2)
     // {
     //     for (int i = point1.X; i <= point2.X; i++)

@@ -1,5 +1,11 @@
 namespace modules.Light.Model;
-public record Light(LightState? State = LightState.Off);
+public record LightType(LightStateValue StateValue);
+
+public static class Light
+{
+    public static LightType New() => new(LightStateValue.Off);
+}
+
 // {
     // private static Light UpdateState(LightState newState) => new(State: newState);
 

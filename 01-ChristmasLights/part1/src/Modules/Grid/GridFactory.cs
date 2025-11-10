@@ -1,31 +1,12 @@
 
-namespace modules.Grid;
+using Modules.Common.Model;
 
-public class GridFactory
+namespace Modules.Grid;
+
+public static class GridFactory
 {
-    private IDictionary<string, GridCreator> Generators { get; }
-
-    public GridFactory()
-    {
-        this.Generators = new Dictionary<string, GridCreator>()
-        {
-            {
-                "Default", CreateGridCreator(DefaultSize)
-            },
-
-            {
-                "100_Square", CreateGridCreator(new(new(100), new(100)))
-            }
-        };
-
-    }
-    public GridCreator GetCreator(string? name = null)
-        => name != null && this.Generators.TryGetValue(name, out var generator) ? generator : DefaultCreator;
-
-    public GridCreator GetCustomCreator(GridSize gridSize) => GridGenerator.New.SetSize(gridSize);
-    private static GridCreator CreateGridCreator(GridSize gridSize) => GridGenerator.New.SetSize(gridSize);
-    private static GridSize DefaultSize => new(new(1000), new(1000));
-    private static GridCreator DefaultCreator { get; } = GridGenerator.New.SetSize(DefaultSize);
+    private static (WidthValue, HeightValue) DefaultSize => (new WidthValue(1000), new HeightValue(1000));
+    private static CreateGrid DefaultCreator { get; } = GridGenerator.New.SetWidth(DefaultSize);
 
 }
 
