@@ -7,11 +7,8 @@ public static class Point
 
     extension(PointCoordinates source)
     {
-        public int GetScalarId()
-
-        => source.X * ((int)Math.Pow(10, source.X.DigitsCount()))  + source.Y;
-
-
+        
+        public Func<int, int> GetScalarId => rank => source.X * ((int)Math.Pow(10, rank))  + source.Y;
     }
 }
 
