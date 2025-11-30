@@ -4,8 +4,6 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>Modules</AssemblyName>
-    <RootNamespace>Modules</RootNamespace>
   </PropertyGroup>
 
 </Project>

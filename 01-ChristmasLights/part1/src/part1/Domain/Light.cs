@@ -1,0 +1,1 @@
+public record Light(EToggleState? State = EToggleState.Off);

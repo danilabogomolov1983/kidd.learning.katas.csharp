@@ -1,1 +1,0 @@
-public record Light(PointCoordinates Point, EToggleState? State = EToggleState.Off);
