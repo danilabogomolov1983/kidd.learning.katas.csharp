@@ -13,6 +13,8 @@ public class GridTests
         grid.TurnOn(expectedPoint);
         var actual = grid.Get(expectedPoint);
         Assert.Equal(Light.On, actual);
+        Assert.Equal(1, grid.TurnedOnLights());
+        Assert.Equal(99, grid.TurnedOffLights());
     }
     
     [Fact]
@@ -23,6 +25,8 @@ public class GridTests
         grid.TurnOff(expectedPoint);
         var actual = grid.Get(expectedPoint);
         Assert.Equal(Light.Off, actual);
+        Assert.Equal(100, grid.TurnedOffLights());
+        Assert.Equal(0, grid.TurnedOnLights());
     }
     
     [Fact]
@@ -33,6 +37,8 @@ public class GridTests
         grid.Toggle(expectedPoint);
         var actual = grid.Get(expectedPoint);
         Assert.Equal(Light.On, actual);
+        Assert.Equal(1, grid.TurnedOnLights());
+        Assert.Equal(99, grid.TurnedOffLights());
     }
     
     [Fact]
@@ -46,6 +52,9 @@ public class GridTests
         var actualLightTo = grid.Get(expectedPointTo);
         Assert.Equal(Light.On, actualLightFrom);
         Assert.Equal(Light.On, actualLightTo);
+        
+        Assert.Equal(100, grid.TurnedOnLights());
+        Assert.Equal(0, grid.TurnedOffLights());
     }
     
     [Fact]
@@ -59,6 +68,9 @@ public class GridTests
         var actualLightTo = grid.Get(expectedPointTo);
         Assert.Equal(Light.Off, actualLightFrom);
         Assert.Equal(Light.Off, actualLightTo);
+        
+        Assert.Equal(100, grid.TurnedOffLights());
+        Assert.Equal(0, grid.TurnedOnLights());
     }
     
     [Fact]
@@ -70,7 +82,10 @@ public class GridTests
         grid.ToggleRange(expectedPointFrom, expectedPointTo);
         var actualLightFrom = grid.Get(expectedPointFrom);
         var actualLightTo = grid.Get(expectedPointTo);
-        Assert.Equal(Light.Off, actualLightFrom);
-        Assert.Equal(Light.Off, actualLightTo);
+        Assert.Equal(Light.On, actualLightFrom);
+        Assert.Equal(Light.On, actualLightTo);
+        
+        Assert.Equal(100, grid.TurnedOnLights());
+        Assert.Equal(0, grid.TurnedOffLights());
     }
 }

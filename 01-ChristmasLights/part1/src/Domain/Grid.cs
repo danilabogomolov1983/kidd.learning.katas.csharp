@@ -23,4 +23,10 @@ public class Grid
         var (x, y) = point;
         return Lights[x, y];
     }
+
+    public IQueryable<Light?> LightsAsQueryable()
+    {
+        var tmp2 = Lights.Cast<Light?>().AsQueryable();
+        return tmp2;
+    }
 }
