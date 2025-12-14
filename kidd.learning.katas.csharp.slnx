@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/01-ChristmasLights/" />
+  <Folder Name="/01-ChristmasLights/part1/" />
+  <Folder Name="/01-ChristmasLights/part1/src/">
+    <Project Path="01-ChristmasLights/part1/src/Part1.csproj" />
+  </Folder>
+  <Folder Name="/01-ChristmasLights/part1/test/">
+    <Project Path="01-ChristmasLights/part1/test/Test.csproj" />
+  </Folder>
+</Solution>
