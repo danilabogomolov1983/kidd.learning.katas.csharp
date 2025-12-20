@@ -4,13 +4,13 @@ namespace Part2.Domain;
 
 public record Brightness(int Value = 0)
 {
-    public static Func<Brightness> Default => () => new Brightness(0);
+    public static readonly Brightness Default = new Brightness(0);
 };
 
 public record Light(EToggleState? State = EToggleState.Off, Brightness? Brightness = null)
 {
-    public static readonly Light Off = new();
-    public static readonly Light On = new(EToggleState.On);
+    public static readonly Light Off = new() { Brightness = Brightness.Default };
+    public static readonly Light On = new(EToggleState.On,  Brightness.Default.IncreaseByOne());
 }
 
 public static class LightExtensions

@@ -21,7 +21,12 @@ public class Grid
     public Light Get(Point point)
     {
         var (x, y) = point;
-        return Lights[x, y];
+        var result = Lights[x, y];
+        if (result == null)
+        {
+            return Light.Off;
+        }
+        return result;
     }
 
     public IQueryable<Light?> LightsAsQueryable()
