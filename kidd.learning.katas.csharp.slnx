@@ -7,4 +7,11 @@
   <Folder Name="/01-ChristmasLights/part1/test/">
     <Project Path="01-ChristmasLights/part1/test/Test.csproj" />
   </Folder>
+  <Folder Name="/01-ChristmasLights/part2/" />
+  <Folder Name="/01-ChristmasLights/part2/src/">
+    <Project Path="01-ChristmasLights/part2/src/Part2.csproj" />
+  </Folder>
+  <Folder Name="/01-ChristmasLights/part2/test/">
+    <Project Path="01-ChristmasLights/part2/test/Test.csproj" />
+  </Folder>
 </Solution>
