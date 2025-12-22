@@ -4,7 +4,7 @@ namespace Part2.Domain;
 
 public record Brightness(int Value = 0)
 {
-    public static readonly Brightness Default = new Brightness(0);
+    public static readonly Brightness Default = new (0);
 };
 
 public record Light(EToggleState? State = EToggleState.Off, Brightness? Brightness = null)
